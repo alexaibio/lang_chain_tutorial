@@ -4,7 +4,8 @@ import openai
 from langchain.llms import OpenAI
 from langchain.chains import LLMChain
 from langchain.chains import PALChain
-openai.api_key = os.getenv('OPENAI_API_KEY')
+from dotenv import load_dotenv
+load_dotenv('.env')
 
 
 llm = OpenAI(
