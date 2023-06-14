@@ -21,7 +21,7 @@ user_question = "Cyanobacteria can perform photosynthetsis, are they considered 
 # Chain 1: Generating a rephrased version of the user's question
 template = """{question}\n\n"""
 prompt_template = PromptTemplate(input_variables=["question"], template=template)
-question_chain = LLMChain(llm=llm, prompt=prompt_template)
+question_chain = LLMChain(llm=llm, prompt=prompt_template, verbose=True)
 
 
 # Chain 2: Generating assumptions made in the statement
