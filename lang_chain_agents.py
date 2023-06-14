@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 load_dotenv('.env')
 
 
+####### task 1: use PAL math tool to solve math question
 llm = OpenAI(temperature=0)
 tools = load_tools(["pal-math"], llm=llm)
 
@@ -15,15 +16,14 @@ agent = initialize_agent(tools,
                          verbose=True)
 print('--------------------')
 print(agent.agent.llm_chain.prompt.template)
-
-# task 1
 #agent.run("If my age is half of my dad's age and he is going to be 60 next year, what is my current age?")
 
-# task 2: more complicated
+
+###### task 2: use serpapi to access real time information
+# model does not know the current age of Demi Moor, so an error
 #agent.run("My age is half of my dad's age. Next year he is going to be same age as Demi Moore. What is my current age?")
 
-# model does not know the current age of Memi Moor, so an error
-# we need to asses a tool for answering questions about current events - serpapi
+# we need to assess a tool for answering questions about current events - serpapi
 tools = load_tools(["pal-math", "serpapi"], llm=llm)
 agent = initialize_agent(tools,
                          llm,
