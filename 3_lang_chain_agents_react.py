@@ -24,6 +24,8 @@ print(agent.agent.llm_chain.prompt.template)
 #agent.run("My age is half of my dad's age. Next year he is going to be same age as Demi Moore. What is my current age?")
 
 # we need to assess a tool for answering questions about current events - serpapi
+# model does not know the current age of Memi Moor, so an error
+# we need to assess a tool for answering questions about current events - serpapi
 tools = load_tools(["pal-math", "serpapi"], llm=llm)
 agent = initialize_agent(tools,
                          llm,

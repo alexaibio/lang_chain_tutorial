@@ -5,6 +5,7 @@ https://medium.com/@avra42/getting-started-with-langchain-a-powerful-tool-for-wo
 
 """
 import openai
+import os
 from langchain.chains import LLMChain, SimpleSequentialChain  # import LangChain libraries
 from langchain.llms import OpenAI  # import OpenAI model
 from langchain.prompts import PromptTemplate # import PromptTemplate
@@ -12,7 +13,7 @@ from dotenv import load_dotenv
 load_dotenv('.env')
 
 
-llm = OpenAI(model_name="text-davinci-003", max_tokens=300, temperature=0.9, openai_api_key=config['OPENAI_API_KEY'])
+llm = OpenAI(model_name="text-davinci-003", max_tokens=300, temperature=0.9, openai_api_key=os.getenv('OPENAI_API_KEY'))
 
 user_question = "Cyanobacteria can perform photosynthetsis, are they considered as plants?"
 
@@ -20,7 +21,7 @@ user_question = "Cyanobacteria can perform photosynthetsis, are they considered 
 # Chain 1: Generating a rephrased version of the user's question
 template = """{question}\n\n"""
 prompt_template = PromptTemplate(input_variables=["question"], template=template)
-question_chain = LLMChain(llm=llm, prompt=prompt_template)
+question_chain = LLMChain(llm=llm, prompt=prompt_template, verbose=True)
 
 
 # Chain 2: Generating assumptions made in the statement
