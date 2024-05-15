@@ -9,4 +9,4 @@ def get_project_root() -> Path:
 
 config = dotenv_values(get_project_root() / ".env")
 #os.environ["OPENAI_API_KEY"] = config['OPENAI_API_KEY']
-load_dotenv('.env')
+#load_dotenv('.env')
