@@ -3,7 +3,7 @@ from langchain.agents import initialize_agent
 from langchain.agents import AgentType
 from langchain.agents import load_tools
 from dotenv import load_dotenv
-load_dotenv('.env')
+load_dotenv('../.env')
 
 
 ####### task 1: use PAL math tool to solve math question

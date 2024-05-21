@@ -27,7 +27,7 @@ prompt = PromptTemplate.from_template(template)
 callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 # Make sure the model path is correct for your system!
 llm = LlamaCpp(
-    model_path="./models/zephyr-7b-beta.Q4_0.gguf",
+    model_path="../models/zephyr-7b-beta.Q4_0.gguf",
     temperature=0.75,
     max_tokens=2000,
     top_p=1,
@@ -45,7 +45,7 @@ llm.invoke(question)
 # local model
 
 llm = LlamaCpp(
-    model_path="./models/zephyr-7b-beta.Q4_0.gguf",
+    model_path="../models/zephyr-7b-beta.Q4_0.gguf",
     temperature=0.75,
     max_tokens=2000,
     top_p=1,

@@ -5,7 +5,7 @@ from langchain.llms import OpenAI
 from langchain.chains import LLMChain
 from langchain.chains import PALChain
 from dotenv import load_dotenv
-load_dotenv('.env')
+load_dotenv('../.env')
 
 
 llm = OpenAI(
