@@ -9,15 +9,14 @@ from settings import get_project_root
 
 
 # pip install "unstructured[md]"
-loader = DirectoryLoader(get_project_root() / "docs/", glob="*.pdf")
+# follow this for pillow installation: https://pillow.readthedocs.io/en/latest/installation/building-from-source.html
+loader = DirectoryLoader(get_project_root() / "docs/", glob="*.md")
 docs = loader.load()
 
+# split all documents in a folder
+splits = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200).split_documents(docs)
 
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-splits = text_splitter.split_documents(docs)
-
-
-
+# place sptils into vector chroma db (in memory
 vectorstore = Chroma.from_documents(documents=splits, embedding=FastEmbedEmbeddings())
 retriever = vectorstore.as_retriever()
 

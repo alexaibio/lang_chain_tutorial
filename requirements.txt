@@ -7,3 +7,5 @@ unstructured[md]
 unstructured[pdf]
 
 opencv-python
+fastembed
+chromadb
